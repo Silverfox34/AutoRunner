@@ -27,10 +27,6 @@ def OnKeyboardEvent(event):
     if(event.Key == 'Escape'):
         if(myProcess != None):
             os.system("taskkill /F /im pdzkp_byMF.exe")
-            #os.system("taskkill /F -pid "+str(myProcess.pid))
-            #os.kill(myProcess.pid, signal.SIGINT)
-            #myProcess.terminate()
-            #myProcess.kill()
             myProcess = None
 
         
@@ -41,17 +37,12 @@ def OnKeyboardEvent(event):
     if(event.Key == 'Oem_Plus'):
         print("main process started with pressing oem_plus" ) 
         if(myProcess == None):    
-            myProcess = subprocess.Popen("pdzkp_byMF.exe", creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
+            myProcess = subprocess.Popen("pdzkp_byMF.exe")
 
     if((event.Key == 'S' or event.Key == 'Lshift') and myProcess != None):
         print('process stopped')
 
         os.system("taskkill /F /im pdzkp_byMF.exe")
-        #os.system("taskkill /F /T -pid "+str(myProcess.pid))
-        #os.kill(myProcess.pid, signal.SIGINT)
-        #myProcess.terminate()
-        #myProcess.kill()
-        #myProcess = None
         pydirectinput.keyUp('w')
         myProcess = None
         
