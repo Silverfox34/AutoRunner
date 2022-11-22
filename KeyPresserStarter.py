@@ -14,15 +14,11 @@ import signal
 
 myProcess = None
 
-def main():
-    pc.PumpMessages()
-
-
 
 def OnKeyboardEvent(event):
     global myProcess
    
-    print(event.Key)
+    #print(event.Key)
 
     if(event.Key == 'Escape'):
         if(myProcess != None):
@@ -35,17 +31,17 @@ def OnKeyboardEvent(event):
     
     
     if(event.Key == 'Oem_Plus'):
-        print("main process started with pressing oem_plus" ) 
+        print("Main process started with pressing plus" ) 
         if(myProcess == None):    
             myProcess = subprocess.Popen("pdzkp_byMF.exe")
 
     if((event.Key == 'S' or event.Key == 'Lshift') and myProcess != None):
-        print('process stopped')
+        
 
         os.system("taskkill /F /im pdzkp_byMF.exe")
         pydirectinput.keyUp('w')
         myProcess = None
-        
+        print('The program stopped.\nTo continue the program, press plus again')
 
     
     return True
@@ -61,5 +57,5 @@ hm.HookKeyboard()
 
 
 if __name__ == "__main__":
-    
+    print('Welcome to the Autorunner-Tool\n\nOperation manual:\n - Start: press plus (+)\n - Stop: press shift OR s\n - End: press escape\n----------\n')
     pc.PumpMessages()
