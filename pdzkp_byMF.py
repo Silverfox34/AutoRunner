@@ -17,7 +17,7 @@ def mainLogic():
         
 
         pydirectinput.keyDown('w')
-        time.sleep(1)
+        time.sleep(3600)
         pydirectinput.keyUp('w')
 
 
