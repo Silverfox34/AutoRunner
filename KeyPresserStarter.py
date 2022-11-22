@@ -57,5 +57,5 @@ hm.HookKeyboard()
 
 
 if __name__ == "__main__":
-    print('Welcome to the Autorunner-Tool\n\nOperation manual:\n - Start: press plus (+)\n - Stop: press shift OR s\n - End: press escape\n----------\n')
+    print('Welcome to the Autorunner-Tool\nThis program will automatically press and hold the \'w\'-button in-game for you!\n\nOperation manual:\n - Start: press plus (+)\n - Stop: press shift OR s\n - End: press escape\n----------\n')
     pc.PumpMessages()
