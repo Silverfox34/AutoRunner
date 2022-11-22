@@ -2,7 +2,8 @@ from pynput.keyboard import Key, Controller
 import time
 from pynput import keyboard as kb
 import os
-#import pyWinhook as pyWinhook
+
+import pydirectinput
 
 
 
@@ -12,16 +13,16 @@ import os
 def main():
     print('Main process started')
     keyboard = Controller()
-    
-    #KeyPresser soll KeypresserStarter mit conda python starten und auf die Inputs hören
-    
-    
 
-    while(True):
-        with keyboard.pressed('w'):
-            #
-            time.sleep(0.05)
-            keyboard.release('w')
+    
+    
+    while True:
+        
+
+        pydirectinput.keyDown('w')
+        time.sleep(1)
+        pydirectinput.keyUp('w')
+        
 
 
 
