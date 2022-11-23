@@ -18,7 +18,7 @@ myProcess = None
 def OnKeyboardEvent(event):
     global myProcess
    
-    #print(event.Key)
+    print(event.Key)
 
     if(event.Key == 'Escape'):
         if(myProcess != None):
@@ -35,7 +35,7 @@ def OnKeyboardEvent(event):
         if(myProcess == None):    
             myProcess = subprocess.Popen("pdzkp_byMF.exe")
 
-    if((event.Key == 'S' or event.Key == 'Lshift') and myProcess != None):
+    if((event.Key == 'S' or event.Key == 'Lshift' or event.Key == 'Tab') and myProcess != None):
         
 
         os.system("taskkill /F /im pdzkp_byMF.exe")
