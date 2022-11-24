@@ -4,6 +4,7 @@ import os
 from pyWinhook import HookManager
 import pydirectinput
 import signal
+import time
 
 
 #Automatic Key Presser
@@ -24,6 +25,8 @@ def OnKeyboardEvent(event):
         if(myProcess != None):
             os.system("taskkill /F /im pdzkp_byMF.exe")
             myProcess = None
+            print("Program has been terminated successfully.\nBye bye !")
+            time.sleep(3.5)
 
         
         os._exit(1)
