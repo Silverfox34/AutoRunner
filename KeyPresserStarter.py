@@ -41,7 +41,7 @@ def OnKeyboardEvent(event):
         os.system("taskkill /F /im pdzkp_byMF.exe")
         pydirectinput.keyUp('w')
         myProcess = None
-        print('The program stopped.\nTo continue the program, press plus again')
+        print('The program stopped. To end it, press ESC.\nTo continue the program, press plus again.')
 
     
     return True
@@ -57,5 +57,5 @@ hm.HookKeyboard()
 
 
 if __name__ == "__main__":
-    print('Welcome to the Autorunner-Tool\nThis program will automatically press and hold the \'w\'-button in-game for you!\n\nOperation manual:\n - Start: press plus (+)\n - Stop: press shift OR s OR Tab\n - End: press escape\n----------\n')
+    print('Welcome to the Autorunner-Tool\nThis program will automatically press and hold the \'w\'-button in-game for you!\n\nOperation manual:\n - Start: press plus (+)\n - Stop: press shift OR s OR Tab\n - End: press ESC\n----------\n')
     pc.PumpMessages()
