@@ -1,4 +1,4 @@
-from pynput.keyboard import Key, Controller
+#from pynput.keyboard import Key, Controller
 import time
 import pydirectinput
 
@@ -8,11 +8,7 @@ def main():
     
         
 def mainLogic():
-    
-    keyboard = Controller()
 
-    
-    
     while True:
         
 
