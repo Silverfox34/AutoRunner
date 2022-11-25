@@ -63,6 +63,7 @@ def OnKeyboardEvent(event):
         myProcess_walking = subprocess.Popen("pdzkp_byMF.exe")
 
 
+
     if(event.Key == 'Delete' and myProcess_walking == None and myProcess_clicking_flag == False):
         print("Clicking process started with pressing \'Delete\'" )    
         mouse.press(button='left')
