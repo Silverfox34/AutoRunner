@@ -7,11 +7,9 @@ def main():
     mainLogic()
     
         
-def mainLogic():
+def mainLogic():       
 
     while True:
-        
-
         pydirectinput.keyDown('w')
         time.sleep(3600)
         pydirectinput.keyUp('w')

@@ -12,12 +12,18 @@ import mouse
 #Moritz.Fesseler@gmx.de
 
 
-
+TASKKILL = "taskkill /F /im pdzkp_byMF.exe"
+TASKSTART = "pdzkp_byMF.exe"
+EXIT_CODE = 1
+SLEEPTIMER = 2
 myProcess_walking = None
 myProcess_clicking_flag = False
 
 
 def OnKeyboardEvent(event):
+    global TASKKILL
+    global EXIT_CODE
+    global SLEEPTIMER
     global myProcess_walking
     global myProcess_clicking_flag
    
@@ -25,25 +31,25 @@ def OnKeyboardEvent(event):
 
     if(event.Key == 'End'):
         if(myProcess_walking != None and myProcess_clicking_flag == False):
-            os.system("taskkill /F /im pdzkp_byMF.exe")
+            os.system(TASKKILL)
             myProcess_walking = None
             print("Program has been terminated successfully while walking.")
             
 
         if(myProcess_walking == None and myProcess_clicking_flag != False):
-            os.system("taskkill /F /im pdzkp_byMF_roast.exe")
+            mouse.release(button='left')
             myProcess_clicking_flag = False
             print("Program has been terminated successfully while clicking.")
                
 
         
         print("Bye bye !")
-        time.sleep(2) 
-        os._exit(1)
+        time.sleep(SLEEPTIMER) 
+        os._exit(EXIT_CODE)
 
 
     if((event.Key == 'S' or event.Key == 'Lshift' or event.Key == 'Tab') and myProcess_walking != None and myProcess_clicking_flag == False): 
-        os.system("taskkill /F /im pdzkp_byMF.exe")     
+        os.system(TASKKILL)     
         pydirectinput.keyUp('w')
         myProcess_walking = None
         print('The walking process stopped. To end the program, press End.\nTo continue the program, press \'Insert\' or \'Delete\' again.')
@@ -51,7 +57,6 @@ def OnKeyboardEvent(event):
 
 
     if((event.Key == 'Lshift' or event.Key == 'S' or event.Key == 'W' or event.Key == 'D' or event.Key == 'A' or event.Key == 'Tab') and myProcess_walking == None and myProcess_clicking_flag != False): 
-        #os.system("taskkill /F /im pdzkp_byMF_roast.exe")     
         mouse.release(button='left')
         myProcess_clicking_flag = False
         print('The clicking process stopped. To end the program, press End.\nTo continue the program, press \'Insert\' or \'Delete\' again.')
@@ -60,8 +65,7 @@ def OnKeyboardEvent(event):
 
     if(event.Key == 'Insert' and myProcess_walking == None and myProcess_clicking_flag == False):
         print("Walking process started with pressing \'Insert\'" )    
-        myProcess_walking = subprocess.Popen("pdzkp_byMF.exe")
-
+        myProcess_walking = subprocess.Popen(TASKSTART)
 
 
     if(event.Key == 'Delete' and myProcess_walking == None and myProcess_clicking_flag == False):
@@ -72,8 +76,8 @@ def OnKeyboardEvent(event):
     
     if(myProcess_clicking_flag != False and myProcess_walking != None):
         print('FATAL ERROR OCCURED !\nThe program is ending now')
-        time.sleep(2)
-        os._exit(1)
+        time.sleep(SLEEPTIMER)
+        os._exit(EXIT_CODE)
 
 
 
